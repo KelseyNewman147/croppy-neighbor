@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import Amplify, { API, graphqlOperation } from 'aws-amplify'
 import { createCrop } from './graphql/mutations'
 import { listCrops } from './graphql/queries'
+import logo from './earth.svg';
+import './App.css';
 
 import awsExports from "./aws-exports";
 Amplify.configure(awsExports);
@@ -42,6 +44,15 @@ const App = () => {
   }
 
   return (
+    <div style={styles.topContainer}>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Croppy Neighbor
+        </p>
+      </header>
+    </div>
     <div style={styles.container}>
       <h2>Crops</h2>
       <input
@@ -56,7 +67,7 @@ const App = () => {
         value={formState.description}
         placeholder="Description"
       />
-      <button style={styles.button} onClick={addCrop}>Create crop</button>
+      <button style={styles.button} onClick={addCrop}>Add Crop</button>
       {
         crops.map((crop, index) => (
           <div key={crop.id ? crop.id : index} style={styles.crop}>
@@ -66,11 +77,14 @@ const App = () => {
         ))
       }
     </div>
+    </div>
+
   )
 }
 
 const styles = {
-  container: { width: 400, margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', padding: 20 },
+  topContainer: { border: '3px solid #fff', padding: 20 },
+  container: { width: 400, margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'column', float: 'left', padding: 20 },
   crop: {  marginBottom: 15 },
   input: { border: 'none', backgroundColor: '#ddd', marginBottom: 10, padding: 8, fontSize: 18 },
   cropName: { fontSize: 20, fontWeight: 'bold' },
