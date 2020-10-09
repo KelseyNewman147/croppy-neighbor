@@ -2,4 +2,5 @@ type Crop @model {
   id: ID!
   name: String!
   description: String
+  pests: String
 }

@@ -7,6 +7,7 @@ export const onCreateCrop = /* GraphQL */ `
       id
       name
       description
+      pests
       createdAt
       updatedAt
     }
@@ -18,6 +19,7 @@ export const onUpdateCrop = /* GraphQL */ `
       id
       name
       description
+      pests
       createdAt
       updatedAt
     }
@@ -29,6 +31,7 @@ export const onDeleteCrop = /* GraphQL */ `
       id
       name
       description
+      pests
       createdAt
       updatedAt
     }

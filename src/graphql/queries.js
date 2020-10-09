@@ -7,6 +7,7 @@ export const getCrop = /* GraphQL */ `
       id
       name
       description
+      pests
       createdAt
       updatedAt
     }
@@ -23,6 +24,7 @@ export const listCrops = /* GraphQL */ `
         id
         name
         description
+        pests
         createdAt
         updatedAt
       }
