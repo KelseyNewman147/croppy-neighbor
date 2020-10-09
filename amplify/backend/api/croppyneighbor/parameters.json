@@ -1,0 +1,5 @@
+{
+    "AppSyncApiName": "croppyneighbor",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": false
+}
