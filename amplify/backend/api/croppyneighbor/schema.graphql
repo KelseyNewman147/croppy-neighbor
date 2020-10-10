@@ -3,4 +3,12 @@ type Crop @model {
   name: String!
   description: String
   pests: String
+  rooting_depth: Int
+  foot_print: Int
+  light_needs: Int
+  water_needs: Int
+  time_in_field: Int
+  family: String
+  labor: Int
+  profit: Int 
 }

@@ -8,6 +8,14 @@ export const getCrop = /* GraphQL */ `
       name
       description
       pests
+      rooting_depth
+      foot_print
+      light_needs
+      water_needs
+      time_in_field
+      family
+      labor
+      profit
       createdAt
       updatedAt
     }
@@ -25,6 +33,14 @@ export const listCrops = /* GraphQL */ `
         name
         description
         pests
+        rooting_depth
+        foot_print
+        light_needs
+        water_needs
+        time_in_field
+        family
+        labor
+        profit
         createdAt
         updatedAt
       }
