@@ -43,7 +43,7 @@ const App = () => {
       const cropData = await API.graphql(graphqlOperation(listCrops))
       const crops = cropData.data.listCrops.items
       setCrops(crops)
-    } catch (err) { console.log('error fetching crops') }
+    } catch (err) { console.log('error fetching crops:', err) }
   }
 
   async function addCrop() {
@@ -76,7 +76,7 @@ const App = () => {
         onChange={event => {setInput('scientific_name', event.target.value)}}
         style={styles.input}
         value={formState.scientific_name} 
-        placeholder="Ex: Solanum lycopersicum"
+        placeholder="Ex: Solanum Lycopersicum"
       />
       <span>Common Name</span>
       <input
@@ -152,20 +152,20 @@ const App = () => {
       {
         crops.map((crop, index) => (
           <div key={crop.id ? crop.id : index} style={styles.crop}>
-            <p style={styles.cropScientificName}>{crop.scientific_name}</p>
-            <p style={styles.cropValues}>{crop.common_name}</p>
-            <p style={styles.cropValues}>{crop.pests}</p>
-            <p style={styles.cropValues}>{crop.rooting_depth}</p>
-            <p style={styles.cropValues}>{crop.foot_print}</p>
-            <p style={styles.cropValues}>{crop.light_needs}</p>
-            <p style={styles.cropValues}>{crop.water_needs}</p>
-            <p style={styles.cropValues}>{crop.time_in_field}</p>
-            <p style={styles.cropValues}>{crop.family}</p>
-            <p style={styles.cropValues}>{crop.labor}</p>
-            <p style={styles.cropValues}>{crop.profit}</p>
+            <p style={styles.cropScientificName}>Scientific Name: {crop.scientific_name}</p>
+            <p style={styles.cropValues}>Common Name: {crop.common_name}</p>
+            <p style={styles.cropValues}>Pests: {crop.pests.join(',')}</p>
+            <p style={styles.cropValues}>Rooting Depth: {crop.rooting_depth}</p>
+            <p style={styles.cropValues}>Foot Print: {crop.foot_print}</p>
+            <p style={styles.cropValues}>Light Needs: {crop.light_needs}</p>
+            <p style={styles.cropValues}>Water Needs: {crop.water_needs}</p>
+            <p style={styles.cropValues}>Time in Field: {crop.time_in_field}</p>
+            <p style={styles.cropValues}>Family: {crop.family}</p>
+            <p style={styles.cropValues}>Labor: {crop.labor}</p>
+            <p style={styles.cropValues}>Profit: {crop.profit}</p>
           </div>
         ))
-      }
+      }      
     </div>
     </div>
   )

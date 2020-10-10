@@ -43,25 +43,25 @@ export const DROPDOWN = {
   ],
   TIME_IN_FIELD: [
     { 
-      label: 'S',
+      label: 'Short (30-50 days)',
       value: 1
     },
     { 
-      label: 'M',
+      label: 'Medium (50-100 days)',
       value: 2
     },
     { 
-      label: 'LS',
+      label: 'Long (100+ days)',
       value: 3
     },
   ],
   LABOR: [
     { 
-      label: 'LL',
+      label: 'Low Labor', // labor per 100 row ft
       value: 3
     },
     { 
-      label: 'LI',
+      label: 'Labor Intensive', // ex: tomatoes (10+ hrs)
       value: -1
     }
   ],
