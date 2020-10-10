@@ -5,8 +5,8 @@ export const getCrop = /* GraphQL */ `
   query GetCrop($id: ID!) {
     getCrop(id: $id) {
       id
-      name
-      description
+      common_name
+      scientific_name
       pests
       rooting_depth
       foot_print
@@ -30,8 +30,8 @@ export const listCrops = /* GraphQL */ `
     listCrops(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        name
-        description
+        common_name
+        scientific_name
         pests
         rooting_depth
         foot_print

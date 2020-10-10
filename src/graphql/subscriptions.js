@@ -5,8 +5,8 @@ export const onCreateCrop = /* GraphQL */ `
   subscription OnCreateCrop {
     onCreateCrop {
       id
-      name
-      description
+      common_name
+      scientific_name
       pests
       rooting_depth
       foot_print
@@ -25,8 +25,8 @@ export const onUpdateCrop = /* GraphQL */ `
   subscription OnUpdateCrop {
     onUpdateCrop {
       id
-      name
-      description
+      common_name
+      scientific_name
       pests
       rooting_depth
       foot_print
@@ -45,8 +45,8 @@ export const onDeleteCrop = /* GraphQL */ `
   subscription OnDeleteCrop {
     onDeleteCrop {
       id
-      name
-      description
+      common_name
+      scientific_name
       pests
       rooting_depth
       foot_print

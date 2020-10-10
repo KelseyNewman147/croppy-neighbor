@@ -8,8 +8,8 @@ export const createCrop = /* GraphQL */ `
   ) {
     createCrop(input: $input, condition: $condition) {
       id
-      name
-      description
+      common_name
+      scientific_name
       pests
       rooting_depth
       foot_print
@@ -31,8 +31,8 @@ export const updateCrop = /* GraphQL */ `
   ) {
     updateCrop(input: $input, condition: $condition) {
       id
-      name
-      description
+      common_name
+      scientific_name
       pests
       rooting_depth
       foot_print
@@ -54,8 +54,8 @@ export const deleteCrop = /* GraphQL */ `
   ) {
     deleteCrop(input: $input, condition: $condition) {
       id
-      name
-      description
+      common_name
+      scientific_name
       pests
       rooting_depth
       foot_print

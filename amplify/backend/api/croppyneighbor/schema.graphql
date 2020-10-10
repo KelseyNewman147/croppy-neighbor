@@ -1,8 +1,8 @@
 type Crop @model {
   id: ID!
-  name: String!
-  description: String
-  pests: String
+  common_name: String
+  scientific_name: String!
+  pests: [String]
   rooting_depth: Int
   foot_print: Int
   light_needs: Int
