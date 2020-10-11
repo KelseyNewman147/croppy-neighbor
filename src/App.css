@@ -5,9 +5,9 @@
 .App-logo {
   height: 8vmin;
   pointer-events: none;
-  position: absolute;
+  position: flex;
   top: 0px;
-  right: 0px;
+  left: 0px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
