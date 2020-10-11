@@ -78,6 +78,16 @@ export const DROPDOWN = {
       label: '$$$',
       value: 3
     },
+  ],
+  SEARCH_TYPE: [
+    {
+      label: 'Scientific Name',
+      value: 'scientific_name'
+    },
+    {
+      label: 'Common Name',
+      value: 'common_name'
+    }
   ]
 }
 
@@ -109,5 +119,6 @@ export const initialState = {
   labor: '',
   profit: '',
   searchBoxes: [],
-  comparisonResults: []
+  comparisonResults: [],
+  search_type: ''
 }
