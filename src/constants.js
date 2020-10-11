@@ -107,5 +107,7 @@ export const initialState = {
   time_in_field: '',
   family: '',
   labor: '',
-  profit: ''
+  profit: '',
+  searchBoxes: [],
+  comparisonResults: []
 }
