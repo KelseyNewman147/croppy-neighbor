@@ -12,6 +12,7 @@ export const getCrop = /* GraphQL */ `
       foot_print
       light_needs
       water_needs
+      nutrient_needs
       time_in_field
       family
       labor
@@ -37,6 +38,7 @@ export const listCrops = /* GraphQL */ `
         foot_print
         light_needs
         water_needs
+        nutrient_needs
         time_in_field
         family
         labor

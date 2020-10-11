@@ -12,6 +12,7 @@ export const onCreateCrop = /* GraphQL */ `
       foot_print
       light_needs
       water_needs
+      nutrient_needs
       time_in_field
       family
       labor
@@ -32,6 +33,7 @@ export const onUpdateCrop = /* GraphQL */ `
       foot_print
       light_needs
       water_needs
+      nutrient_needs
       time_in_field
       family
       labor
@@ -52,6 +54,7 @@ export const onDeleteCrop = /* GraphQL */ `
       foot_print
       light_needs
       water_needs
+      nutrient_needs
       time_in_field
       family
       labor

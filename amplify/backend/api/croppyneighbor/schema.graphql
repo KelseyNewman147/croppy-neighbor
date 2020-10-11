@@ -7,6 +7,7 @@ type Crop @model {
   foot_print: Int
   light_needs: Int
   water_needs: Int
+  nutrient_needs: Int
   time_in_field: Int
   family: String
   labor: Int
