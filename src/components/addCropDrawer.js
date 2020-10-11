@@ -92,6 +92,13 @@ export function AddCropDrawer(addCropDrawerIsOpen, handleAddCropDrawer) {
         defaultValue={DROPDOWN.NEEDS[0]}
         options={DROPDOWN.NEEDS}
       />
+      <span>Nutrient Needs</span>
+      <Select
+        onChange={event => setInput('nutrient_needs', event.value)}
+        styles={styles.selectStyles}
+        defaultValue={DROPDOWN.NEEDS[0]}
+        options={DROPDOWN.NEEDS}
+      />
       <span>Time in Field</span>
       <Select
         onChange={event => setInput('time_in_field', event.value)}

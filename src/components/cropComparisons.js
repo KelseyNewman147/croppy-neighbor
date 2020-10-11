@@ -73,7 +73,6 @@ export function CropComparisons() {
         })));
         
         const [comparisonLeft, comparisonRight] = await Promise.all(searchPromises);
-        console.log(comparisonRight);
         setComparisonState([
           comparisonLeft.data.listCrops.items[0], 
           comparisonRight.data.listCrops.items[0]
