@@ -14,7 +14,6 @@ Amplify.configure(awsExports);
 const App = () => {
   const [crops, setCrops] = useState([])
   const [addCropDrawerIsOpen, handleAddCropDrawer] = useState(initialState.addCropDrawerIsOpen)
-  console.log(addCropDrawerIsOpen);
   useEffect(() => {
     fetchCrops()
   }, [])
@@ -28,20 +27,20 @@ const App = () => {
   }
 
   return (
-    <div style={styles.topContainer}>
+    // <div style={styles.topContainer}>
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
+        <h3>
           Croppy Neighbor
-        </p>
+        </h3>
       </header>
-    </div>
-    <div>
+    {/* </div> */}
+    <div style={styles.topContainer}>
       <header>
-        <p>
+        <h4>
           Crop Comparisons
-        </p>
+        </h4>
         <button
               color="secondary"
               variant="contained"
@@ -51,7 +50,7 @@ const App = () => {
         </button>
       </header>
       {AddCropDrawer(addCropDrawerIsOpen, handleAddCropDrawer)}
-    </div>
+    </div >
       {
         crops.map((crop, index) => (
           <div key={crop.id ? crop.id : index} style={styles.crop}>
