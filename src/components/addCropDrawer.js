@@ -1,19 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
-  Divider,
+  Drawer,
 } from '@material-ui/core';
+import Select from 'react-select'
 import { createCrop } from '../graphql/mutations'
 import { sanitize } from '../utils';
+import { styles, DROPDOWN, initialState } from '../constants';
+import { API, graphqlOperation } from 'aws-amplify'
 
-export class AddCropDrawer extends React.Component {
+export function AddCropDrawer(addCropDrawerIsOpen, handleAddCropDrawer) {
 
-  handleCancel = () => {
-    const { onClose, clearFormInput } = this.props;
-    clearFormInput();
-    onClose();
+  const [formState, setFormState] = useState(initialState)
+  const [crops, setCrops] = useState([])
+
+  const handleCancel = () => {
+    setFormState(initialState)
+    handleAddCropDrawer(!addCropDrawerIsOpen)
   };
   
-   addCrop = async () => {
+  const setInput = (key, value) => {
+    setFormState({ ...formState, [key]: value })
+  }
+
+  const addCrop = async () => {
     try {
       let crop = { ...formState }
       crop = sanitize(crop);
@@ -26,18 +35,20 @@ export class AddCropDrawer extends React.Component {
     }
   }
 
-  render() {
     return (
-      <React.Fragment>
-        <Divider />
-        <div style={styles.container}>
+      <Drawer
+        open={addCropDrawerIsOpen}
+        onClose={handleCancel}
+        anchor='right'
+      >
+      <div style={styles.container}>
       <h3>Add New Crop</h3>
       <span>Scientific Name</span>
       <input
         onChange={event => {setInput('scientific_name', event.target.value)}}
         style={styles.input}
         value={formState.scientific_name} 
-        placeholder="Ex: Solanum lycopersicum"
+        placeholder="Ex: Solanum Lycopersicum"
       />
       <span>Common Name</span>
       <input
@@ -109,10 +120,9 @@ export class AddCropDrawer extends React.Component {
         defaultValue={DROPDOWN.PROFIT[0]}
         options={DROPDOWN.PROFIT}
       />
-      <button style={styles.button} onClick={this.addCrop}>Add Crop</button>
-      <button style={styles.button} onClick={this.handleCancel}>Cancel</button>
+      <button style={styles.button} onClick={addCrop}>Add Crop</button>
+      <button style={styles.button} onClick={handleCancel}>Cancel</button>
       </div>
-        </React.Fragment>
+      </Drawer>
     );
-  }
 }
