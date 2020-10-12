@@ -120,5 +120,6 @@ export const initialState = {
   profit: '',
   searchBoxes: [],
   comparisonResults: [],
-  search_type: ''
+  search_type: '',
+  searchReults: []
 }
