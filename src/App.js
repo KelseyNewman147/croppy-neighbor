@@ -38,16 +38,17 @@ const App = () => {
       </header>
     <div style={styles.topContainer}>
       <header>
-        <h4>
-          Crop Comparisons
-        </h4>
         <button
               color="secondary"
               variant="contained"
+              style={styles.addButton}
               onClick={() => handleAddCropDrawer(!addCropDrawerIsOpen)}
             >
               Add Crop
         </button>
+        <h3>
+          Crop Comparisons
+        </h3>
       </header>
       {AddCropDrawer(addCropDrawerIsOpen, handleAddCropDrawer)}
       {CropComparisons()}

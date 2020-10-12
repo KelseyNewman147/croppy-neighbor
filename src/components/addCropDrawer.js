@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {
-  Drawer,
+  Drawer
 } from '@material-ui/core';
 import Select from 'react-select'
 import { createCrop } from '../graphql/mutations'
@@ -41,7 +41,7 @@ export function AddCropDrawer(addCropDrawerIsOpen, handleAddCropDrawer) {
         onClose={handleCancel}
         anchor='right'
       >
-      <div style={styles.container}>
+      <div style={styles.drawerContainer}>
       <h3>Add New Crop</h3>
       <span>Scientific Name</span>
       <input
@@ -68,42 +68,42 @@ export function AddCropDrawer(addCropDrawerIsOpen, handleAddCropDrawer) {
       <Select
         onChange={event => setInput('rooting_depth', event.value)}
         styles={styles.selectStyles}
-        defaultValue={DROPDOWN.ROOT_DEPTHS[0]}
         options={DROPDOWN.ROOT_DEPTHS}
+        placeholder='<select one>'
       />
       <span>Foot Print</span>
       <Select
         onChange={event => setInput('foot_print', event.value)}
         styles={styles.selectStyles}
-        defaultValue={DROPDOWN.FOOT_PRINT[0]}
+        placeholder='<select one>'
         options={DROPDOWN.FOOT_PRINT}
       />
       <span>Light Needs</span>
       <Select
         onChange={event => setInput('light_needs', event.value)}
         styles={styles.selectStyles}
-        defaultValue={DROPDOWN.NEEDS[0]}
+        placeholder='<select one>'
         options={DROPDOWN.NEEDS}
       />
       <span>Water Needs</span>
       <Select
         onChange={event => setInput('water_needs', event.value)}
         styles={styles.selectStyles}
-        defaultValue={DROPDOWN.NEEDS[0]}
+        placeholder='<select one>'
         options={DROPDOWN.NEEDS}
       />
       <span>Nutrient Needs</span>
       <Select
         onChange={event => setInput('nutrient_needs', event.value)}
         styles={styles.selectStyles}
-        defaultValue={DROPDOWN.NEEDS[0]}
+        placeholder='<select one>'
         options={DROPDOWN.NEEDS}
       />
       <span>Time in Field</span>
       <Select
         onChange={event => setInput('time_in_field', event.value)}
         styles={styles.selectStyles}
-        defaultValue={DROPDOWN.TIME_IN_FIELD[0]}
+        placeholder='<select one>'
         options={DROPDOWN.TIME_IN_FIELD}
       />
       <span>Scientific Family</span>
@@ -116,7 +116,7 @@ export function AddCropDrawer(addCropDrawerIsOpen, handleAddCropDrawer) {
       <span>Labor</span>
       <Select
         onChange={event => setInput('labor', event.value)}
-        defaultValue={DROPDOWN.LABOR[0]}
+        placeholder='<select one>'
         options={DROPDOWN.LABOR}
         styles={styles.selectStyles}
       />
@@ -124,11 +124,11 @@ export function AddCropDrawer(addCropDrawerIsOpen, handleAddCropDrawer) {
       <Select
         onChange={event => setInput('profit', event.value)}
         styles={styles.selectStyles}
-        defaultValue={DROPDOWN.PROFIT[0]}
+        placeholder='<select one>'
         options={DROPDOWN.PROFIT}
       />
-      <button style={styles.button} onClick={addCrop}>Add Crop</button>
-      <button style={styles.button} onClick={handleCancel}>Cancel</button>
+      <button style={styles.drawerButton} onClick={addCrop}>Add Crop</button>
+      <button style={styles.drawerButton} onClick={handleCancel}>Cancel</button>
       </div>
       </Drawer>
     );

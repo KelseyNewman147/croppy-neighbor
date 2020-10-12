@@ -93,14 +93,19 @@ export const DROPDOWN = {
 
 export const styles = {
   topContainer: { border: '3px solid #fff', padding: 10 },
-  container: { width: 400, margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'column', float: 'left', padding: 20 },
+  container: { width: '40%', margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'column', float: 'left' },
+  drawerContainer: { width: 400, margin: '0 auto', display: 'flex', flex: 1, flexDirection: 'column', float: 'left', padding: 20 },
   crop: {  marginBottom: 15 },
-  input: {  backgroundColor: 'white', color: '#696969', marginBottom: 5, marginTop: 5, padding: 8, fontSize: 16, borderColor: 'hsl(0deg 0% 80%)', borderRadius: '4px', borderStyle: 'solid', borderWidth: '1px' },
-  cropScientificName: { fontSize: 20, fontWeight: 'bold' },
-  cropValues: { marginBottom: 0 },
-  button: { backgroundColor: '#696969', borderRadius: '4px', color: 'white', fontSize: 18, padding: '12px 0px', marginTop: 5 },
+  input: {  backgroundColor: 'white', color: '#696969', marginBottom: 5, marginTop: 5, fontSize: 16, borderColor: 'hsl(0deg 0% 80%)', borderRadius: '4px', borderStyle: 'solid', borderWidth: '1px' },
+  drawerInput: {  backgroundColor: 'white', color: '#696969', marginBottom: 5, marginTop: 5, padding: 8, fontSize: 16, borderColor: 'hsl(0deg 0% 80%)', borderRadius: '4px', borderStyle: 'solid', borderWidth: '1px' },
+  cropScientificName: { fontSize: 20, fontWeight: 'bold', marginLeft: 10 },
+  cropValues: { marginBottom: 5, marginLeft: 10 },
+  drawerButton: { backgroundColor: '#696969', borderRadius: '4px', color: 'white', fontSize: 18, padding: '12px 0px', marginTop: 5 },
+  addButton: { width: '10%', backgroundColor: '#696969', borderRadius: '4px', color: 'white', fontSize: 16, padding: '12px 0px', marginTop: 5, marginBottom: 5 },
+  button: { width: '50%', backgroundColor: '#696969', borderRadius: '4px', color: 'white', fontSize: 16, padding: '12px 0px', marginTop: 5, marginBottom: 5 },
+  selectButton: { backgroundColor: '#696969', borderRadius: '4px', color: 'white', fontSize: 10, padding: '5px 5px', margin: 10 },
   selectStyles: {
-    control: styles => ({ ...styles, backgroundColor: 'white', marginBottom: 5, marginTop: 5, fontSize: 16, color: '#696969' }),
+    control: styles => ({ ...styles, backgroundColor: 'white', marginTop: 5, marginBottom: 5, marginRight: 5, fontSize: 16, color: '#696969' }),
     option: styles => ({ ...styles, backgroundColor: 'white', fontSize: 16, color: '#696969' }),
   }
 }

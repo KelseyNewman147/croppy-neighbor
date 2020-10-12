@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { listCrops } from '../graphql/queries'
 import { styles, initialState, DROPDOWN } from '../constants';
 import { API, graphqlOperation } from 'aws-amplify'
@@ -17,7 +17,7 @@ export function CropComparisons() {
   }
 
   function setCropsforSearch(event) {
-    if (event.target.value !== '') {
+    if (event.target.value !== '' && searchState.length < 2) {
       searchState.push(event.target.value)
       setSearchState(searchState)
     } else {
@@ -36,6 +36,7 @@ export function CropComparisons() {
   function clearSearch() {
     setComparisonState([]);
     setSearchResultState([]);
+    setSearchState([]);
     document.getElementById('searchbox1').value = '';
     document.getElementById('searchbox2').value = '';
   }
@@ -93,7 +94,7 @@ export function CropComparisons() {
     }
     total += (cl.profit + cr.profit);
     
-    return <h3>Compatibility Score: {total}</h3>;
+    return <p style={styles.cropScientificName}>Compatibility Score: {total}</p>;
   }
 
   // TODOs:
@@ -104,31 +105,34 @@ export function CropComparisons() {
 
   return (
     <div>
-      <div>
+      <div style={styles.container}>
         <Select
           onChange={event => setInput('search_type', event.value)}
           styles={styles.selectStyles}
-          defaultValue='scientific_name'
           options={DROPDOWN.SEARCH_TYPE}
           placeholder='Search by...'
         />
-        <TextField id='searchbox1' label='Crop 1' type='search' variant='outlined' onBlur={setCropsforSearch}/>
-        <TextField id='searchbox2' label='Crop 2' type='search' variant='outlined' onBlur={setCropsforSearch}/>
-      <button onClick={async () => await searchCrops(searchState, formState.search_type)}>Compare</button>
-      <button onClick={async () => clearSearch()}>Clear</button>
+        <TextField id='searchbox1' label='Crop 1' type='search' variant='outlined' onBlur={setCropsforSearch} style={styles.input}/>
+        <TextField id='searchbox2' label='Crop 2' type='search' variant='outlined' onBlur={setCropsforSearch} style={styles.input}/>
+        <div>
+          <button style={styles.button} onClick={async () => await searchCrops(searchState, formState.search_type)}>Search</button>
+          <button style={styles.button} onClick={async () => clearSearch()}>Clear</button>
+        </div>
      </div>  
+     <div style={styles.container}>
+     {comparisonState.length === 2 && compatibilityScore(comparisonState[0], comparisonState[1])}
      { searchResultState.length !== 2 
       ? (
-        <p>Please enter two crops for comparison</p>
+        <p></p>
       ):(
-    <div style={styles.container}>
+      <div>
       { searchResultState[0].length > 0 &&
       searchResultState[0].map((crop, index) => (
       <div key={crop.id ? crop.id : index} style={styles.crop}>
         <p style={styles.cropScientificName}>Scientific Name: {crop.scientific_name}</p>
         <p style={styles.cropValues}>Common Name: {crop.common_name}</p>
         <p style={styles.cropValues}>Family: {crop.family}</p>
-        <button onClick={()=>setCropsforComparison(crop)}>Select for Compare</button>
+        <button onClick={()=>setCropsforComparison(crop)} style={styles.selectButton}>Select for Compare</button>
       </div>))}
       { searchResultState[1].length > 0 &&
         searchResultState[1].map((crop, index) => (
@@ -136,11 +140,12 @@ export function CropComparisons() {
           <p style={styles.cropScientificName}>Scientific Name: {crop.scientific_name}</p>
           <p style={styles.cropValues}>Common Name: {crop.common_name}</p>
           <p style={styles.cropValues}>Family: {crop.family}</p>
-          <button onClick={()=>setCropsforComparison(crop)}>Select for Compare</button>
+          <button onClick={()=>setCropsforComparison(crop)} style={styles.selectButton}>Select for Compare</button>
         </div>))}
       </div>
     )}
-    {comparisonState.length === 2 && compatibilityScore(comparisonState[0], comparisonState[1])}
+     </div>
+
     </div>
   );
 }
